@@ -1,1 +1,16 @@
-test
+create a .env file :
+
+PORT= 
+
+# arcjet
+ARCJET_ENV=development
+# Get your site key from https://app.arcjet.com
+ARCJET_KEY=
+
+
+#neon credentials 
+PGHOST=
+PGDATABASE=
+PGUSER=
+PGPASSWORD=
+
