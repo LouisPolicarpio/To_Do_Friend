@@ -1,15 +1,23 @@
-import React from 'react'
-import Navbar from './components/Navbar'
-import AppRoutes from './Routes/Routes'
-import { BrowserRouter } from 'react-router-dom'
+import React from 'react';
+import Navbar from './components/Navbar';
+import AppRoutes from './Routes/Routes';
+import { BrowserRouter } from 'react-router-dom';
+import { QueryClient,QueryClientProvider } from '@tanstack/react-query';
+
+// Initialize React Query Client
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <BrowserRouter>
-      <Navbar/>
-      <AppRoutes/>
-    </BrowserRouter>
-  )
+    <div className="w-screen h-screen">
+      <BrowserRouter>
+        <Navbar />
+        <QueryClientProvider client={queryClient}>
+          <AppRoutes />
+        </QueryClientProvider>
+      </BrowserRouter>
+    </div>
+  );
 }
 
-export default App
+export default App;

@@ -15,7 +15,9 @@ const PORT = process.env.PORT || 3000;
 
 //middleware 
 app.use(express.json()); // parses incoming JSON requests and makes the parsed data available 
-app.use(cors()); //e.g frontend runs on http://localhost:3000 and your backend on http://localhost:5000, cors() allows them to communicate
+app.use(cors({
+  origin:'*', //need to make this the frontend path
+})); //e.g frontend runs on http://localhost:3000 and your backend on http://localhost:5000, cors() allows them to communicate
 app.use(helmet()); // scurity middleware sets settings in http headders 
 app.use(morgan("dev")); //logs HTTP requests to the console, useful for debugging.
 
