@@ -1,11 +1,11 @@
 import React from 'react'
-import TodoForm from '../components/forms/TodoForm'
+import AddTodoForm from '../components/forms/AddTodoForm'
 
 function Add() {
   return (
     <div>
         <div  className='flex justify-center p-10' >
-            <TodoForm />
+            <AddTodoForm />
         </div>
     </div>
   )

@@ -3,7 +3,7 @@ import {useForm} from 'react-hook-form'
 import { useCreateTodo } from '../../hooks/useTodo';
 import { toast, ToastContainer, Bounce   } from 'react-toastify';
 
-function TodoForm() {
+function AddTodoForm() {
     const {register,handleSubmit, formState:{errors,isSubmitting},reset} = useForm();
     const mutation = useCreateTodo(); // Using the mutation
     
@@ -69,4 +69,4 @@ function TodoForm() {
     
 }
 
-export default TodoForm
+export default AddTodoForm

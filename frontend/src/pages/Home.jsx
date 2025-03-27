@@ -2,6 +2,8 @@ import React from 'react'
 import { useEffect, useState } from "react";
 
 import { updateBackground } from '../utils/timedBackground';
+import DisplayAllTodo from '../components/DisplayAllTodo';
+import EditTodoForm from '../components/forms/editTodo/EditTodoForm'
 
 function Home() {
   const [timedBg, setTimedBg] = useState(""); 
@@ -20,11 +22,13 @@ function Home() {
     <div className={`min-h-full bg-gradient-to-t   from-green-200 ${timedBg}   transition-colors duration-500`}>
       <div className='p-10'>
         Home
-
+        <DisplayAllTodo/>
+        <EditTodoForm/>
       </div>
-
     </div>
   )
 }
+
+
 
 export default Home

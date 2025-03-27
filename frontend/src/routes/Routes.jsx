@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Home from '../pages/Home'
-import Add from '../pages/add'
+import Add from '../pages/Add'
 
 function AppRoutes() {
   return (
