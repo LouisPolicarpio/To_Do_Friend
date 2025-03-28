@@ -23,7 +23,6 @@ function Home() {
       <div className='p-10'>
         Home
         <DisplayAllTodo/>
-        <EditTodoForm/>
       </div>
     </div>
   )

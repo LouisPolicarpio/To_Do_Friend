@@ -22,6 +22,15 @@ function Navbar() {
       </div>
 
 
+      <div className='flex-1 bg-amber-600 w-10' >
+        <Link to="/edit">
+          <h1>
+            edit
+          </h1>
+        </Link>
+      </div>
+
+
     </div>
   )
 }
