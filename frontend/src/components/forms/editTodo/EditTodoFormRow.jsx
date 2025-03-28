@@ -1,21 +1,35 @@
 import React from 'react'
 import { useForm } from 'react-hook-form';
-import { useEditTodo } from '../../../hooks/useTodo';
+import { useDeleteTodo, useEditTodo } from '../../../hooks/useTodo';
 
 
 function TodoFormRow({todo,  index}) {
     const { register, handleSubmit, formState: { errors  }, reset } = useForm();
-    const mutation = useEditTodo();
+    const editMutation = useEditTodo();
+    const delMutation = useDeleteTodo();
 
     const onSubmit =(data)=>{
         console.log(data.task)
-        mutation.mutate({id:todo.id, data:data.task},{
+        editMutation.mutate({id:todo.id, data:data.task},{
             onSuccess:() =>{
                 console.log('todo created')
                 reset(); // Clear the form after submission
             },
             onError: (error) => {
                 console.error("Error creating todo:", error);
+            },
+        });
+    }
+
+    const onDelete =()=>{
+        console.log('delete : ' + todo.id)
+        delMutation.mutate(todo.id,{
+            onSuccess:() =>{
+                console.log('todo created')
+                reset(); // Clear the form after submission
+            },
+            onError: (error) => {
+                console.error("Error deleting todo:", error);
             },
         });
     }
@@ -41,7 +55,7 @@ function TodoFormRow({todo,  index}) {
                     />     
 
                     <button type='submit' className='border rounded p-1  m-1 flex-1/15'> update </button>
-                    <button type='button' className='border rounded p-1  m-1 flex-1/15'> delete </button>
+                    <button type='button' onClick={onDelete} className='border rounded p-1  m-1 flex-1/15'> delete </button>
                     {errors['task']  &&  <div className='text-red-500 ' >{errors.task.message}</div>}
                 
                 </div>  
