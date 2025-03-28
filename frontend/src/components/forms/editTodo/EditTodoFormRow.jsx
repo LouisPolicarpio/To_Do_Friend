@@ -10,7 +10,7 @@ function TodoFormRow({todo,  index}) {
 
     const onSubmit =(data)=>{
         console.log(data.task)
-        editMutation.mutate({id:todo.id, data:data.task},{
+        editMutation.mutate({id:todo.id, data:{task:data.task}},{
             onSuccess:() =>{
                 console.log('todo created')
                 reset(); // Clear the form after submission

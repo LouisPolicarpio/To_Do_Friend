@@ -60,9 +60,12 @@ export const updateTodo = async (req, res) => {
     try {
         const updated_Todo = await sql`
             UPDATE todos 
-            SET task = ${task}, complete = ${complete}, updated_at = NOW()
+            SET 
+                task = COALESCE(${task}, task),           -- Update task only if provided
+                complete = COALESCE(${complete}, complete), -- Update complete only if provided
+                updated_at = NOW()                        -- Always update the timestamp
             WHERE id = ${id}
-            RETURNING *
+            RETURNING *;
         `;
 
         if (updated_Todo.length === 0) {

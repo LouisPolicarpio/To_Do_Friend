@@ -30,7 +30,7 @@ export const getTodo = async () => {
 export const editTodo = async ({id,data}) => {
     try {
         // Sending POST request to create a todo, passing 'data' as the payload
-        const response = await apiClient.put(`/${id}`,{task: data});
+        const response = await apiClient.put(`/${id}`, data);
         console.log(response); // Log the full response object
         // Return the response data if the request is successful
         return response.data;

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { updateBackground } from '../utils/timedBackground';
 import DisplayAllTodo from '../components/DisplayAllTodo';
 import EditTodoForm from '../components/forms/editTodo/EditTodoForm'
+import CheckTodoForm from '../components/forms/checkTodo/checkTodoForm';
 
 function Home() {
   const [timedBg, setTimedBg] = useState(""); 
@@ -23,6 +24,7 @@ function Home() {
       <div className='p-10'>
         Home
         <DisplayAllTodo/>
+        <CheckTodoForm/>
       </div>
     </div>
   )
