@@ -11,6 +11,6 @@ export function updateBackground () {
     } else if (hour >= 15 && hour < 18){
         return "to-indigo-300"
     }else{
-        return "to-purple-200";
+        return "to-purple-300";
     }
 }

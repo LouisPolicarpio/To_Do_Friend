@@ -10,7 +10,7 @@ function CheckTodoForm() {
     if (error) return <p className='text-red-500'>Error: {error.message}</p>;
     
     return (
-        <div className='p-2 border rounded m-5 text-center  '>
+        <div className='p-2 w-full  m-5 text-center  '>
             {todos?.map((todo,index) =>(
                 <CheckTodoFormRow key={todo.id} index={index+1} todo={todo}/>
             ))}

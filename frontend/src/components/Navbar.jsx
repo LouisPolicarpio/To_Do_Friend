@@ -1,36 +1,44 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
+import {HomeIcon} from '@heroicons/react/24/outline'
 
 function Navbar() {
+    const location = useLocation(); // Get the current route
+    const isActive = (path) => location.pathname === path ? "inset-shadow-sm inset-shadow-slate-950/50": "";
+
   return (
-    <div className='flex justify-center items-center w-full h-13 px-5 bg-amber-100'>
-      {/* logo */}
-      <div className='flex-1 bg-amber-300 w-10'  >
-        <Link to="/">
-          <h1>
-            home
-          </h1>
-        </Link>
+
+    
+    <div className="relative z-10 shadow-sm shadow-slate-950/40 h-10 bg-gradient-to-b  from-indigo-950 to-blue-900 transition-colors duration-500 ">
+      <div className=" flex text-xl justify-between font-bold    h-full px-5  text-white">
+          <div className={`basis-1/5 flex text-left h-full items-center justify-center ${isActive("/")}  `} >
+            <Link to="/"  >
+                <HomeIcon className='w-6 h-6  '/>
+            </Link>
+          </div>
+
+
+          <div className="flex basis-2/5 h-full text-right ">
+            <div className={`basis-2/5 flex h-full items-center justify-center ${isActive("/add")}`} >
+              <Link to="/add" >
+                <h1>
+                  Add
+                </h1>
+              </Link>
+            </div>
+
+
+            <div className={`basis-2/5 flex h-full items-center justify-center ${isActive("/edit")}`} >
+              <Link to="/edit" >
+                <h1>
+                  Edit
+                </h1>
+              </Link>
+            </div>
+          </div>
+
+
       </div>
-
-      <div className='flex-1 bg-amber-600 w-10' >
-        <Link to="/add">
-          <h1>
-            add
-          </h1>
-        </Link>
-      </div>
-
-
-      <div className='flex-1 bg-amber-600 w-10' >
-        <Link to="/edit">
-          <h1>
-            edit
-          </h1>
-        </Link>
-      </div>
-
-
     </div>
   )
 }

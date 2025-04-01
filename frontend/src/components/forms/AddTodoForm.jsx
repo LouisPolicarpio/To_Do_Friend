@@ -24,7 +24,7 @@ function AddTodoForm() {
 
     return(
         <>
-            <form onSubmit={handleSubmit(onSubmit)}  className="w-4/6 p-4 border rounded flex   justify-center items-center space-y-1"  >
+            <form onSubmit={handleSubmit(onSubmit)}  className="w-full h-full  p-4  flex   justify-center items-center space-y-1"  >
                 <div className='flex flex-col items-center justify-center  h-full'>
                     <div className='flex space-x-2 items-center' >
                         <label>

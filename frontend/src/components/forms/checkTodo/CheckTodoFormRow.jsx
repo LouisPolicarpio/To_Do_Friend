@@ -2,7 +2,7 @@ import React from 'react'
 import { useEditTodo } from '../../../hooks/useTodo'
 import { useForm } from 'react-hook-form';
 function CheckTodoFormRow({index,todo}) {
-    const { register, handleSubmit, formState: { errors  }, reset } = useForm();
+    const {  handleSubmit, formState: reset } = useForm();
     const mutation = useEditTodo();
 
     const onSubmit =()=>{
@@ -21,10 +21,13 @@ function CheckTodoFormRow({index,todo}) {
     return (
         <div>
         <form id={todo.id} onSubmit={handleSubmit(onSubmit)}>   
-                    <div className={'flex w-full items-center text- justify-center p-1 border-t'}>
+                    <div className={'flex w-full items-center text-center justify-center p-1 border-t'}>
                     <label className='w-1/15'>{index}</label>
                     <label className={`w-13/15 ${todo.complete ? 'line-through': ''}`}>{todo.task}</label>
-                    {!todo.complete &&(
+                    {todo.complete ?(
+                        <div className=' m-1 flex-2/15'></div>
+
+                    ):(
                         <button type='submit' className='border rounded p-1  m-1 flex-2/15'> complete </button>
                     )}
                 </div>     
