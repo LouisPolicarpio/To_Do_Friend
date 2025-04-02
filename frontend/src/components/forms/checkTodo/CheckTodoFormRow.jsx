@@ -1,21 +1,35 @@
 import React from 'react'
 import { useEditTodo } from '../../../hooks/useTodo'
 import { useForm } from 'react-hook-form';
+import { useEditPoints } from '../../../hooks/usePoints';
+
+
 function CheckTodoFormRow({index,todo}) {
-    const {  handleSubmit, formState: reset } = useForm();
-    const mutation = useEditTodo();
+    const {  handleSubmit } = useForm();
+    const todoMutation = useEditTodo();
+    const pointsMutation = useEditPoints();
+    const todoPointVal = 1000;
 
     const onSubmit =()=>{
-        mutation.mutate({id:todo.id, data:{complete:true}},{
+        todoMutation.mutate({id:todo.id, data:{complete:true}},{
             onSuccess:()=>{
-                console.log('to do complete: ' + todo.id)
-                reset();
+                console.log('to do checked: ' + todo.id)
             },
             onError:(error) =>{
-                console.error("error completing todo: ", error)
+                console.error("error checking todo: ", error)
             },
             
-        })
+        });
+
+        pointsMutation.mutate({score:todoPointVal},{
+            onSuccess:()=>{
+                console.log('points updated ' )
+            },
+            onError:(error) =>{
+                console.error("error updating points: ", error)
+            },
+            
+        });
     }
 
     return (

@@ -1,5 +1,6 @@
 import React from 'react'
 import AddTodoForm from '../components/forms/AddTodoForm'
+import DisplayPoints from '../components/DisplayPoints'
 
 function Add() {
   return (
@@ -7,6 +8,8 @@ function Add() {
         <div  className='flex justify-center p-10' >
             <AddTodoForm />
         </div>
+
+        <DisplayPoints/>
     </div>
   )
 }

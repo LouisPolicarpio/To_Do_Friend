@@ -1,5 +1,5 @@
 import { useMutation, useQuery ,useQueryClient } from '@tanstack/react-query';
-import { createTodo,getTodo,editTodo, deleteTodo,} from '../services/todoService';  // Correct path
+import { createTodo,getTodo,editTodo, deleteTodo,} from '../network/services/todoService';  // Correct path
 
 export const useCreateTodo = () => {
   const queryClient = useQueryClient(); // Get the queryClient instance

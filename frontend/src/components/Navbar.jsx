@@ -9,7 +9,7 @@ function Navbar() {
   return (
 
     
-    <div className="relative z-10 shadow-sm shadow-slate-950/40 h-10 bg-gradient-to-b  from-indigo-950 to-blue-900 transition-colors duration-500 ">
+    <div className="relative z-10 shadow-sm shadow-slate-950/40 h-10 bg-gradient-to-b  from-indigo-950 to-blue-800 transition-colors duration-500 ">
       <div className=" flex text-xl justify-between font-bold    h-full px-5  text-white">
           <div className={`basis-1/5 flex text-left h-full items-center justify-center ${isActive("/")}  `} >
             <Link to="/"  >

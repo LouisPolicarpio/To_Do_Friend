@@ -1,4 +1,3 @@
-// services/todoService.js
 import apiClient from '../api/todoApi'; // Importing the apiClient instance
 
 export const createTodo = async (data) => {

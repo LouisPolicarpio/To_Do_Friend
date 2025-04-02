@@ -4,7 +4,7 @@ import { useCreateTodo } from '../../hooks/useTodo';
 import { toast, ToastContainer, Bounce   } from 'react-toastify';
 
 function AddTodoForm() {
-    const {register,handleSubmit, formState:{errors,isSubmitting},reset} = useForm();
+    const {register,handleSubmit, formState:{errors,isSubmitting}} = useForm();
     const mutation = useCreateTodo(); // Using the mutation
     
     const onSubmit = (data) =>{
@@ -13,7 +13,6 @@ function AddTodoForm() {
             onSuccess:() =>{
                 console.log('todo created')
                 toast.success("Todo created successfully!")
-                reset(); // Clear the form after submission
             },
             onError: (error) => {
                 console.error("Error creating todo:", error);

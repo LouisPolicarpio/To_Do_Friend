@@ -12,8 +12,6 @@ function Home() {
   const [timedBg, setTimedBg] = useState(""); 
 
   const [showModal, setShowModal] = useState(false);
-
-
   const openModal = () => setShowModal(true);
   const closeModal = () => setShowModal(false);
 
@@ -26,7 +24,7 @@ function Home() {
 
 
   return (
-    <div className={`relative min-h-full bg-gradient-to-t   from-green-200 ${timedBg}   transition-colors duration-500 z-1`}>
+    <div className={`relative min-h-full bg-gradient-to-t   from-green-100 ${timedBg}   transition-colors duration-500 z-1`}>
       <div className='p-10'>
         <div className='flex flex-col w-full items-center border rounded py-3'>
           <CheckTodoForm className=" w-full"/>
