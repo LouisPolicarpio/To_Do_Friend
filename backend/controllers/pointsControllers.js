@@ -1,18 +1,49 @@
 import {sql} from "../config/db.js"
 
-export const getPoints = async (req,res) =>{
+export const getPoints = async (req, res) => {
     try {
-        const points =  await sql`
-            SELECT * from points
+        // Fetch the last updated timestamp
+        const updateTimeJSON = await sql`
+        
+            SELECT updated_at  FROM points 
+
         `;
-        console.log("feched all todos")
+
+        const updateTime = new Date(updateTimeJSON[0]?.updated_at).getTime();
+        console.log("updateTime (before update):", updateTime);
+        
+        const timestampNow = Date.now();
+        console.log("timestampNow:", timestampNow);
+        const minuteDifference = Math.floor((timestampNow - updateTime) / 60000);
+
+
+        console.log("minuteDifference:", minuteDifference);
+        const multiplier = 100;
+        const scoreReduction = minuteDifference * multiplier;
+        console.log("scoreReduction:", scoreReduction);
+
+        if (minuteDifference >=1 ){
+            const updatedResult = await sql`
+                UPDATE points 
+                SET
+                    score = GREATEST(score - ${scoreReduction}, 0),
+                    updated_at = CURRENT_TIMESTAMP
+            `;
+        }
+
+
+        // Fetch fresh data
+        const points = await sql`
+            SELECT * FROM points
+        `;
+
         res.status(200).json({success:true,data:points})
+
     } catch (error) {
-        console.log("Error in getAllTodos:", error);
+        console.log("Error in getPoints:", error);
         res.status(500).json({ success: false, message: "Internal server error" });
     }
-
-}
+};
 
 export const updatePoints = async(req,res) =>{
     const {score} = req.body
@@ -23,7 +54,7 @@ export const updatePoints = async(req,res) =>{
             UPDATE points
             SET
                 score = score + ${numericScore},
-                updated_at = NOW()
+                updated_at = NOW() AT TIME ZONE 'UTC'
             WHERE id = 1
             RETURNING *;
         `;

@@ -2,7 +2,7 @@ import apiClient from '../api/pointsApi'; // Importing the apiClient instance
 
 export const getPoints = async()=>{
     try {
-        const response = await apiClient.get('/');
+        const response = await apiClient.patch('/');
         console.log(response);
         return response.data.data[0];
     } catch (error) {

@@ -3,7 +3,7 @@ import { getPoints, updatePoints } from "../controllers/pointsControllers.js";
 
 const router  = express.Router();
 
-router.get("/", getPoints);
+router.patch("/", getPoints);
 router.put("/", updatePoints);
 
 export default router;
