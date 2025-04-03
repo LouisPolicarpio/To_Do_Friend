@@ -2,6 +2,13 @@ import { sql } from "../config/db.js";
 
 export const getAllTodos = async (req, res) => {
     try {
+
+        await sql`
+            UPDATE todos
+            SET complete = false
+            WHERE NOW() - updated_at > INTERVAL '24 hours'    
+        `
+
         const todos = await sql`
             SELECT * FROM todos
             ORDER BY created_at DESC

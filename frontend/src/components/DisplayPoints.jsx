@@ -10,9 +10,9 @@ function DisplayPoints() {
   if (isError) return <div>Error: {error.message}</div>;
 
   return (
-    <div>
+    <div className='items-center text-center'>
         <h1>score</h1>
-      <h1> {data?.score}</h1>
+        <h1> {data?.score}</h1>
     </div>
   )
 }

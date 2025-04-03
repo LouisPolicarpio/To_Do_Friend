@@ -16,7 +16,7 @@ export const createTodo = async (data) => {
 export const getTodo = async () => {
     try {
         // Sending POST request to create a todo, passing 'data' as the payload
-        const response = await apiClient.get('/');
+        const response = await apiClient.patch('/');
         console.log(response); // Log the full response object
         // Return the response data if the request is successful
         return response.data.data;

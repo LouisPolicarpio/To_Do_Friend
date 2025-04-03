@@ -4,6 +4,8 @@ import morgan from "morgan";
 import cors from "cors";
 import dotenv from "dotenv";
 import todoListRoutes  from "./routes/todoListRoutes.js"
+import pointsRoutes  from "./routes/pointsRoutes.js"
+
 import { initDB } from "./config/db_init.js";
 import {aj} from "./lib/arcjet.js"
 
@@ -45,7 +47,7 @@ app.use(async (req, res, next) => {
 
 //routes
 app.use("/api/todo",todoListRoutes);
-
+app.use("/api/points",pointsRoutes);
 
 //db
 initDB().then(()=>{

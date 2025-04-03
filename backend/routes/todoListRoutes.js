@@ -3,7 +3,7 @@ import { getAllTodos, createTodo , getTodo, updateTodo, deleteTodo} from "../con
 
 const router  = express.Router();
 
-router.get("/", getAllTodos);
+router.patch("/", getAllTodos);
 router.get("/:id", getTodo);
 router.post("/", createTodo);
 router.put("/:id", updateTodo);
