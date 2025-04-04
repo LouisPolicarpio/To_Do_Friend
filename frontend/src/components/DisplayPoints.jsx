@@ -18,7 +18,11 @@ function DisplayPoints() {
 
   useEffect(()=>{
     const interval = setInterval(()=>{
-      setScore((prevScore) => prevScore - scoreDecrease);
+
+      setScore((prevScore) => {
+        const newScore = prevScore - scoreDecrease
+        return newScore <= 0 ? 0 : newScore;
+      });
     }, UpdatePeriod);
 
     return () =>  clearInterval(interval)
