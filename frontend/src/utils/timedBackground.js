@@ -5,12 +5,12 @@
 export function updateBackground () {
     const hour = new Date().getHours();
     if (hour >= 8 && hour < 10){
-        return "to-amber-100";
+        return "to-amber-200";
     } else if (hour >= 10 && hour < 15){
         return "to-cyan-100"
     } else if (hour >= 15 && hour < 18){
-        return "to-indigo-100"
+        return "to-indigo-400"
     }else{
-        return "to-purple-100";
+        return "to-violet-900";
     }
 }
