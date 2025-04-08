@@ -8,6 +8,7 @@ import AddTodoForm from '../components/forms/AddTodoForm';
 import {PlusCircleIcon} from '@heroicons/react/24/outline'
 import Modal from '../components/Modal';
 import DisplayPoints from '../components/DisplayPoints';
+import Screen from '../components/friend/Screen';
 
 function Home() {
   const [timedBg, setTimedBg] = useState(""); 
@@ -25,7 +26,9 @@ function Home() {
 
 
   return (
-    <div className={`flex flex-col relative min-h-full bg-gradient-to-t   from-green-100 ${timedBg}   transition-colors duration-500 z-1`}>
+    <div className={`flex flex-col relative min-h-full  bg-gradient-to-t   from-cyan-100 to-fuchsia-100 transition-colors duration-500 z-1`}>
+      
+      
       <div className='p-10'>
         <div className='flex flex-col w-full items-center border rounded py-3'>
           <CheckTodoForm className=" w-full"/>
@@ -34,13 +37,23 @@ function Home() {
           </button>
         </div>
       </div>
+      
       <div className='flex w-full'>
         {showModal && <Modal Content={AddTodoForm} close={closeModal} className="flex w-4/5 h-max-100"/>}
       </div>
-      
-      <div className='border rounded w-2/5 items-center'>
-        <DisplayPoints/>
+     
+      <div className='flex justify-center w-full p-10'>
+        <div className='border rounded w-2/5 items-center'>
+          <DisplayPoints />
+        </div>
       </div>
+
+      <div className='flex justify-center w-full p-10'>
+        <div className={`w-2/5 aspect-square border rounded  bg-gradient-to-t   from-green-100 ${timedBg} p-1`}>
+          <Screen />
+        </div>
+      </div>
+
     </div>
   )
 }
