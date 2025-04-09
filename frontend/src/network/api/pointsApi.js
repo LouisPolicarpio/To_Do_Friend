@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 // Pulling the base URL from environment variables
-const BASE_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
+const BASE_URL = "https://to-do-friend-1.onrender.com";
 
 // Creating axios client instance
 const apiClient = axios.create({
