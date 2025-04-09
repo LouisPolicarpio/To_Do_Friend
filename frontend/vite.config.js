@@ -8,6 +8,8 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base:"/To_Do_Friend"
+  build: {
+    outDir: 'dist',
+  },
 
 })
