@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect, useState } from "react";
 
 import { updateBackground } from '../utils/timedBackground';
-import CheckTodoForm from '../components/forms/checkTodo/checkTodoForm';
+import CheckTodoForm from '../components/forms/checkTodo/CheckTodoForm'
 import AddTodoForm from '../components/forms/AddTodoForm';
 
 import {PlusCircleIcon} from '@heroicons/react/24/outline'
