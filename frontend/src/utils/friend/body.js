@@ -18,16 +18,16 @@ export function character(frame,score) {
   });
 
   let mouthState = 1;
-  if(score === 0){
+  if(score <= 0){
     mouthState = 0;
   }else if (score > 0 && score < 3000){
     mouthState = 1;
-  }else{
+  }else if (score > 3000){
     mouthState = 2
   }
 
   console.log(score)
-  
+
   let mouth = state[mouthState]
 
   mouth.forEach(([row,col]) => {
