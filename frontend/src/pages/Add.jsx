@@ -1,6 +1,6 @@
 import React from 'react'
 import AddTodoForm from '../components/forms/AddTodoForm'
-import DisplayPoints from '../components/DisplayPoints'
+import DisplayPoints from '../components/DisplayScore'
 
 function Add() {
   return (
